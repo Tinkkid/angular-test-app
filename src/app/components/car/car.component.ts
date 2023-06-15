@@ -26,6 +26,17 @@ export class CarComponent implements OnInit {
     this.options = ['ABS', 'ESP', 'Cruise Control'];
   }
 
+  addOption(option: string) {
+    this.options.unshift(option);
+    return false;
+  }
+
+  deleteOption(option: string) {
+    this.options.forEach((element, index) => {
+      if (element == option) this.options.splice(index, 1);
+    });
+  }
+
   carSelect(carName: string) {
     if (carName === 'bmw') {
       this.name = 'BMW';

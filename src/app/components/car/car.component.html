@@ -21,9 +21,28 @@
     </ul>
   </div>
   <h5>Car options</h5>
+  <form (submit)="addOption(option.value)">
+    <div class="form-group">
+      <label for="option">Add new option</label>
+      <input
+        id="option"
+        type="text"
+        placeholder="add smth..."
+        class="form-control"
+        #option
+      />
+      <br />
+      <button type="submit" class="btn btn-outline-success">Add</button>
+    </div>
+  </form>
   <div class="alert alert-warning">
     <ul>
-      <li *ngFor="let option of options">{{ option }}</li>
+      <li *ngFor="let option of options">
+        {{ option }}
+        <button class="btn btn-warning btn-sm" (click)="deleteOption(option)">
+          X
+        </button>
+      </li>
     </ul>
   </div>
   <h5>Choose a car</h5>
