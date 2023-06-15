@@ -11,6 +11,7 @@ export class CarComponent implements OnInit {
   name: string;
   colors: Colors;
   options: string[];
+  isEdit: boolean = false;
 
   constructor() {}
 
@@ -35,6 +36,10 @@ export class CarComponent implements OnInit {
     this.options.forEach((element, index) => {
       if (element == option) this.options.splice(index, 1);
     });
+  }
+
+  showEdit() {
+    this.isEdit = !this.isEdit;
   }
 
   carSelect(carName: string) {
